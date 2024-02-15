@@ -1,0 +1,70 @@
+@import url('https://fonts.cdnfonts.com/css/blanka');
+@import url("stake.css");
+@import url("home.css");
+@import url("home2.css");
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: "GTWalsheimPro" !important;
+    list-style: none;
+    color: inherit;
+    text-decoration: none;
+}
+
+a,a:hover{
+  text-decoration: none;
+  color: white;
+}
+
+
+@font-face {
+    font-family: "GTWalsheimPro";
+    font-weight: 900;
+    src: url("../font/GTWalsheimPro-Black.woff");
+  }
+  
+  @font-face {
+    font-family: "GTWalsheimPro";
+    font-weight: 200;
+    src: url("../font/GTWalsheimPro-Light.woff");
+  }
+  
+  @font-face {
+    font-family: "GTWalsheimPro";
+    font-weight: 800;
+    src: url("../font/GTWalsheimPro-Bold.woff");
+  }
+  
+  @font-face {
+    font-family: "GTWalsheimPro";
+    font-weight: 1000;
+    src: url("../font/GTWalsheimPro-UltraBold.woff");
+  }
+  
+  @font-face {
+    font-family: "GTWalsheimPro";
+    font-weight: 100;
+    src: url("../font/GTWalsheimPro-Thin.woff");
+  }
+  
+  @font-face {
+    font-family: "GTWalsheimPro";
+    font-weight: 400;
+    src: url("../font/GTWalsheimPro-Regular.woff");
+  }
+  
+  @font-face {
+    font-family: "GTWalsheimPro";
+    font-weight: 600;
+    src: url("../font/GTWalsheimPro-Medium.woff");
+  }
+
+  .logo{
+    text-align: none;
+    color: inherit;
+    font-family: 'Blanka', sans-serif !important;    
+    text-decoration: none;
+  }

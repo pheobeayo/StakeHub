@@ -1,0 +1,119 @@
+.stake_top_bar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    padding: 0px 5%;
+}
+
+.stake_top_bar .content{
+    display: flex;
+    justify-content: space-between;
+    gap: 120px;
+}
+
+.stake_top_bar ul{
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+.stake_top_bar ul li a{
+    display: flex;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    gap: 5px;
+    color: inherit;
+}
+
+.stake_top_bar .address_container{
+    display: flex;
+    background-color: white;
+    padding: 5px;
+    align-items: center;
+    gap: 3px;
+    border-radius: 5px;
+}
+
+.stake_top_bar .address_container p{
+    background-color: #F5F2F6;
+    font-size: 11px;
+    padding: 5px;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.stake_top_bar .address_container p .dot{
+    background-color: #3B8BFF;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+}
+
+.stake_top_bar ul li .active{
+    color: #9B31B3 !important;
+}
+
+.stake_root{
+    background-color: #F5F2F6;
+    min-height: 100vh;
+}
+
+.stake_container{
+    width:100%;
+    max-width:550px;
+    margin:0px auto;
+    padding: 20px 10px;
+}
+.stake_root .mantine-Accordion-item{
+    background-color: white;
+    padding: 15px 8px;
+    margin-top: 15px;
+    border: none;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.03);
+    border-radius: 8px;
+}
+
+.stake_root .mantine-Accordion-label{
+    font-weight: 700;
+}
+
+.stake_root .mantine-Tabs-tabsList{
+    background-color: white !important;
+    border-bottom: none;
+    padding: 3px !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    border-radius: 5px;
+}
+.stake_root .mantine-Tabs-tab{
+    height: 45px;
+    border-bottom: none;
+    border-radius: 4px;
+    margin: 0;
+    width: 100%;
+    font-weight: 700;
+}
+
+.stake_root .mantine-Tabs-panel{
+    margin-top: 25px;
+}
+
+.stake_container .header{
+    text-align: center;
+    margin-bottom: 30px;
+}
+.stake_container .header h3{
+    color:#36164A;
+    margin-bottom: 10px;
+}
+
+.stake_container .stake_panel .stake_panel_stake {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+}
