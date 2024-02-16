@@ -4,7 +4,7 @@ function StakeTopBar() {
   return (
     <div className="stake_top_bar">
           <div className="content">
-              <A className="logo" to={"/"}>Krypto staking</A>
+              <A className="logo" to={"/"}>StakeHub</A>
               <ul>
                 <li><A to={"/stake"}><AiFillThunderbolt /> STAKE</A></li>
                 <li><A to={"/"}><AiOutlineWallet /> REWARDS</A></li>

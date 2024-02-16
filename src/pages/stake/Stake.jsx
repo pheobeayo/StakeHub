@@ -140,7 +140,7 @@ function Stake() {
                 </Container>
               </div>
               <h3 style={{ color: "#36164A", margin: "25px 0px 25px 0px" }}>
-                KRYPTO Staking Statistics
+                StakeHub Statistics
               </h3>
             </div>
           </Tabs.Panel>
