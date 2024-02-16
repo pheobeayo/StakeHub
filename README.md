@@ -1,4 +1,4 @@
-# Krypto-staking
+# StakeHub
 A Defi Staking Application
 
 
