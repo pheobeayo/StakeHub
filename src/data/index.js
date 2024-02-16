@@ -71,19 +71,19 @@ export const faqs = [
     },
     {
         id:2,
-        question:"What is StakeHub ?"
+        question:"How do I get Started ?"
     },
     {
         id:3,
-        question:"What is StakeHub ?"
+        question:"Who can stake ?"
     },
     {
         id:4,
-        question:"What is StakeHub ?"
+        question:"What are the Rewards ?"
     },
     {
         id:5,
-        question:"What is StakeHub ?"
+        question:"How can I withdraw my rewards ?"
     },
     {
         id:6,
