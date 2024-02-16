@@ -1,18 +1,16 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8;
-
+import "./interface.sol";
 contract StakingRewards {
     IERC20 public immutable stakingToken;
     IERC20 public immutable rewardsToken;
+    //0x64Cf8aB052073Cc810C6F3cC14D089a1313757ee stakingToken
+    //0x08F3E6eD4CafBAfF253D0ABc0E90b7243cc08558 rewardsToken
+    //0xfAC002195341F8E5A9535E29C2b621f113BDd8B0 maincontract
 
     address public owner;
 
-    /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    staking-contract = 0x81908580A50517432d180e6e5eE3C05B06505314
-    staking-token = 0x06CF90BdcA174e02d960BF59483c7e09b6393d58
-    reward-token = 0xe0558beBC4D9c53333dACFc395e7a2FbfcAEeE32
-    +++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
-
+    
     // Duration of rewards to be paid out (in seconds)
     uint public duration;
     // Timestamp of when the rewards finish
@@ -131,23 +129,3 @@ contract StakingRewards {
     }
 }
 
-interface IERC20 {
-    function totalSupply() external view returns (uint);
-
-    function balanceOf(address account) external view returns (uint);
-
-    function transfer(address recipient, uint amount) external returns (bool);
-
-    function allowance(address owner, address spender) external view returns (uint);
-
-    function approve(address spender, uint amount) external returns (bool);
-
-    function transferFrom(
-        address sender,
-        address recipient,
-        uint amount
-    ) external returns (bool);
-
-    event Transfer(address indexed from, address indexed to, uint value);
-    event Approval(address indexed owner, address indexed spender, uint value);
-}
