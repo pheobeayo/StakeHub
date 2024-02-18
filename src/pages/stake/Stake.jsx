@@ -1,3 +1,13 @@
+import { useEffect } from "react";
+import {
+  useAddress,
+  useContract,
+  
+} from "@thirdweb-dev/react";
+import {
+  stakingContractAddress,
+  stakingTokenContractAddress,
+} from "../../consts/contractAddresses";
 
 import {
   Accordion,
@@ -15,12 +25,36 @@ import {
 import { faqs } from "../../data";
 
 function Stake() {
+  const address = useAddress();
+  const { contract } = useContract(stakingContractAddress);
+
+  useEffect(() => {
+    if (!contract || !address) return;
+  });
+
+  async function stake() {
+    if (!address) return;
+
+    const isApproved = await stakingTokenContractAddress?.isApproved(
+      address,
+      stakingContractAddress
+    );
+    if (!isApproved) {
+      await stakingTokenContractAddress?.setApprovalForAll(
+        stakingContractAddress,
+        true
+      );
+    }
+    await contract?.call("stake", [[]]);
+  }
+  
+
   return (
     <div>
       <div className="stake_container">
         <div className="header">
           <h3>StakeHub </h3>
-          <p>Stake Hedera here and get annual reward of 4.21%</p>
+          <p>Stake Ethereum here and get annual reward of 4.21%</p>
         </div>
         <Tabs
           defaultValue={"stake"}
@@ -52,7 +86,7 @@ function Stake() {
                   <Flex justify={"space-between"}>
                     <div>
                       <Text size={13}>Available to stake </Text>
-                      <h4>0.0HBAR</h4>
+                      <h4>0.0ETH</h4>
                     </div>
                     <div>
                       <Badge
@@ -73,7 +107,7 @@ function Stake() {
                   <Flex justify={"space-between"}>
                     <div>
                       <Text size={13}>Staked amount </Text>
-                      <h4>0.0HBAR</h4>
+                      <h4>0.0ETH</h4>
                     </div>
                     <div>
                       <Text size={13}>ARP ? </Text>
@@ -113,22 +147,25 @@ function Stake() {
                     >
                       Unlock stake
                     </Button>
-                    <Button color={"violet.5"} size="md" fullWidth>
-                      Stake now
-                    </Button>
+                    
+                    <Button color={"violet.5"} size="md" fullWidth
+                    contractAddress={stakingContractAddress}
+                    action={() => stake()}>
+                      Stake now 
+                    </Button> 
                   </Flex>
                   <Flex mt={30} gap={8} direction={"column"}>
                     <Flex align={"center"} justify={"space-between"}>
                       <Text color="#5B5B5B" size={15}>
                         Staking reward
                       </Text>
-                      <Text size={15}>0.000HBAR </Text>
+                      <Text size={15}>0.000ETH </Text>
                     </Flex>
                     <Flex align={"center"} justify={"space-between"}>
                       <Text color="#5B5B5B" size={15}>
                         Gas fee
                       </Text>
-                      <Text size={15}>0.000HBAR</Text>
+                      <Text size={15}>0.000ETH</Text>
                     </Flex>
                     <Flex align={"center"} justify={"space-between"}>
                       <Text color="#5B5B5B" size={15}>
@@ -157,7 +194,7 @@ function Stake() {
                   <Flex justify={"space-between"}>
                     <div>
                       <Text size={13}>Available to stake </Text>
-                      <h4>0.0HBAR</h4>
+                      <h4>0.0ETH</h4>
                     </div>
                     <div>
                       <Badge
@@ -178,7 +215,7 @@ function Stake() {
                   <Flex justify={"space-between"}>
                     <div>
                       <Text size={13}>Staked amount </Text>
-                      <h4>0.0HBAR</h4>
+                      <h4>0.0ETH</h4>
                     </div>
                     <div>
                       <Text size={13}>ARP ? </Text>
@@ -213,7 +250,7 @@ function Stake() {
                       },
                     }}
                   >
-                    Default HBAR unstaking period takes between 5-7 days (83
+                    Default ETH unstaking period takes between 5-7 days (83
                     epoch) to process. After which you can claim your reward in
                     the claim tab
                   </Badge>
@@ -240,19 +277,19 @@ function Stake() {
                       <Text color="#5B5B5B" size={15}>
                         Staking reward
                       </Text>
-                      <Text size={15}>0.000HBAR </Text>
+                      <Text size={15}>0.000ETH </Text>
                     </Flex>
                     <Flex align={"center"} justify={"space-between"}>
                       <Text color="#5B5B5B" size={15}>
                         You will receive
                       </Text>
-                      <Text size={15}>0.000HBAR</Text>
+                      <Text size={15}>0.000ETH</Text>
                     </Flex>
                   </Flex>
                 </Container>
               </div>
               <h3 style={{ color: "#36164A", margin: "25px 0px 25px 0px" }}>
-              StakeHub Statistics
+                StakeHub Statistics
               </h3>
             </div>
           </Tabs.Panel>
@@ -269,7 +306,7 @@ function Stake() {
                   <Flex justify={"space-between"}>
                     <div>
                       <Text size={13}>Available to stake </Text>
-                      <h4>0.0HBAR</h4>
+                      <h4>0.0ETH</h4>
                     </div>
                     <div>
                       <Badge
@@ -290,7 +327,7 @@ function Stake() {
                   <Flex justify={"space-between"}>
                     <div>
                       <Text size={13}>Staked amount </Text>
-                      <h4>0.0HBAR</h4>
+                      <h4>0.0ETH</h4>
                     </div>
                     <div>
                       <Text size={13}>ARP ? </Text>
@@ -327,7 +364,7 @@ function Stake() {
                     }}
                   >
                     You will be able to claim your rewards after the withdraw
-                    request has been processed. to unstake your HBAR, go to the
+                    request has been processed. to unstake your ETH, go to the
                     Unstake tab
                   </Badge>
 
@@ -346,7 +383,7 @@ function Stake() {
                           Total claimable rewards
                         </Text>
                         <Text weight={"700"} size={16}>
-                          0.0HBAR
+                          0.0ETH
                         </Text>
                       </div>
                       <div>
@@ -354,33 +391,33 @@ function Stake() {
                           Pending rewards
                         </Text>
                         <Text align="right" weight={"700"} size={16}>
-                          0.0HBAR
+                          0.0ETH
                         </Text>
                       </div>
                     </Flex>
                   </Container>
 
                   <Button color={"violet.5"} size="md" fullWidth>
-                    Claim 0.0HBAR
+                    Claim 0.0ETH
                   </Button>
                   <Flex mt={30} gap={8} direction={"column"}>
                     <Flex align={"center"} justify={"space-between"}>
                       <Text color="#5B5B5B" size={15}>
                         Staking reward
                       </Text>
-                      <Text size={15}>0.000HBAR </Text>
+                      <Text size={15}>0.000ETH </Text>
                     </Flex>
                     <Flex align={"center"} justify={"space-between"}>
                       <Text color="#5B5B5B" size={15}>
                         You will receive
                       </Text>
-                      <Text size={15}>0.000HBAR</Text>
+                      <Text size={15}>0.000ETH</Text>
                     </Flex>
                   </Flex>
                 </Container>
               </div>
               <h3 style={{ color: "#36164A", margin: "25px 0px 25px 0px" }}>
-              StakeHub Staking Statistics
+                StakeHub Staking Statistics
               </h3>
             </div>
           </Tabs.Panel>
